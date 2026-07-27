@@ -1,13 +1,10 @@
-# OpsPilot：可评测、可观测、可控访问的 Agentic RAG
+# OpsPilot — Agentic RAG
 
-OpsPilot 是一个面向企业知识问答与安全运维自动化的 Agentic RAG 项目。它使用
+OpsPilot 是一个面向企业知识问答的 Agentic RAG 项目。它使用
 Python、LangChain 和 LangGraph 实现混合检索、证据评分、查询改写、失败重试、来源引用、
-无证据拒答、多轮上下文、Cross-Encoder 重排、LangSmith 追踪、工具调用、
-人工审批、JWT/OIDC 登录、文档级权限过滤、PostgreSQL/pgvector、结构化审计和
-分布式限流、校验和迁移、备份恢复演练、Prometheus 指标、OpenTelemetry 链路、
-SLO 压测和发布门禁，并通过 FastAPI 和 Streamlit 提供可演示产品。
-项目还提供 Kubernetes/Helm 生产部署、HPA、PDB、NetworkPolicy、滚动发布、
-expand-only 数据库迁移门禁和原子回滚验收。v0.11.0 进一步加入 Streamlit
+无证据拒答、多轮上下文、Cross-Encoder 重排、LangSmith 追踪，
+并通过 FastAPI 和 Streamlit 提供可演示产品。
+v0.11.0 进一步加入 Streamlit
 页面级自动化测试和统一发布验收证据，明确区分通过、失败与基础设施未配置的跳过项。
 
 默认 `local` 模式不需要 API Key，结果可重复，适合本地开发、持续集成和离线回归评测；
