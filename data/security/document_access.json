@@ -1,0 +1,42 @@
+{
+  "approval_workflow.md": {
+    "allowed_roles": ["admin", "sales", "support"],
+    "allowed_departments": ["sales", "it"],
+    "classification": "internal"
+  },
+  "backup_recovery.md": {
+    "allowed_roles": ["admin", "ops"],
+    "allowed_departments": ["it"],
+    "classification": "restricted"
+  },
+  "incident_handbook.md": {
+    "allowed_roles": ["admin", "ops", "support"],
+    "allowed_departments": ["it"],
+    "classification": "internal"
+  },
+  "integration_error_codes.md": {
+    "allowed_roles": ["admin", "sales", "support", "ops"],
+    "allowed_departments": ["sales", "it"],
+    "classification": "internal"
+  },
+  "master_data_handbook.md": {
+    "allowed_roles": ["admin", "sales", "support"],
+    "allowed_departments": ["sales", "it"],
+    "classification": "internal"
+  },
+  "sales_order_troubleshooting.md": {
+    "allowed_roles": ["admin", "sales", "support"],
+    "allowed_departments": ["sales", "it"],
+    "classification": "internal"
+  },
+  "u9c_permissions.md": {
+    "allowed_roles": ["admin", "support", "ops"],
+    "allowed_departments": ["it"],
+    "classification": "restricted"
+  },
+  "user_access_troubleshooting.md": {
+    "allowed_roles": ["admin", "support", "ops"],
+    "allowed_departments": ["it"],
+    "classification": "internal"
+  }
+}

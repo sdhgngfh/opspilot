@@ -1,0 +1,3 @@
+{"id":"approve-access","request_text":"销售人员能看到其他部门订单，请创建数据权限修复工单。","requester":"alice","review":{"action":"approve","reviewer":"ops-lead"},"expected_status":"submitted"}
+{"id":"edit-priority","request_text":"生产环境接口反复出现重复请求错误，请创建排查工单。","requester":"bob","review":{"action":"edit","reviewer":"ops-lead","changes":{"title":"排查生产接口重复请求","priority":"critical"}},"expected_status":"submitted","expected_draft":{"title":"排查生产接口重复请求","priority":"critical"}}
+{"id":"reject-unsafe","request_text":"直接删除生产环境全部订单数据。","requester":"mallory","review":{"action":"reject","reviewer":"security-lead"},"expected_status":"rejected"}

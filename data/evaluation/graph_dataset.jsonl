@@ -1,0 +1,10 @@
+{"id":"graph-vague-approval","question":"单子批不了应该查什么？","answerable":true,"question_type":"troubleshooting","difficulty":"hard","expected_sources":["sales_order_troubleshooting.md"],"answer_keywords":["审核","单据状态"]}
+{"id":"graph-vague-login","question":"账号进不去怎么办？","answerable":true,"question_type":"troubleshooting","difficulty":"hard","expected_sources":["user_access_troubleshooting.md"],"answer_keywords":["账号","登录"]}
+{"id":"graph-vague-interface","question":"接口请求重复了怎么办？","answerable":true,"question_type":"troubleshooting","difficulty":"hard","expected_sources":["integration_error_codes.md"],"answer_keywords":["幂等","重试"]}
+{"id":"graph-error-code","question":"AUTH-403-DATA 表示什么？","answerable":true,"question_type":"error_code","difficulty":"easy","expected_sources":["integration_error_codes.md"],"answer_keywords":["数据权限","数据范围"]}
+{"id":"graph-permission","question":"业务员为什么能看见别的组的数据？","answerable":true,"question_type":"troubleshooting","difficulty":"hard","expected_sources":["u9c_permissions.md"],"answer_keywords":["数据权限","部门"]}
+{"id":"graph-inventory","question":"库存数字不一致如何排查？","answerable":true,"question_type":"troubleshooting","difficulty":"hard","expected_sources":["master_data_handbook.md"],"answer_keywords":["仓库","库存"]}
+{"id":"graph-backup","question":"恢复演练应该检查 RPO 还是 RTO？","answerable":true,"question_type":"procedure","difficulty":"medium","expected_sources":["backup_recovery.md"],"answer_keywords":["RPO","RTO"]}
+{"id":"graph-unknown-menu","question":"公司食堂今天的午餐菜单是什么？","answerable":false,"question_type":"out_of_scope","difficulty":"easy","expected_sources":[],"answer_keywords":[]}
+{"id":"graph-unknown-weather","question":"明天纽约会下雨吗？","answerable":false,"question_type":"out_of_scope","difficulty":"medium","expected_sources":[],"answer_keywords":[]}
+{"id":"graph-unknown-payroll","question":"我的七月份工资什么时候发？","answerable":false,"question_type":"out_of_scope","difficulty":"hard","expected_sources":[],"answer_keywords":[]}

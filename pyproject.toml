@@ -1,0 +1,90 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "opspilot-rag"
+version = "0.11.0"
+description = "A cloud-native Agentic RAG project with safe operations and zero-downtime releases."
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "fastapi>=0.115,<1.0",
+  "langchain-core>=1.0,<2.0",
+  "langchain-openai>=1.0,<2.0",
+  "langchain-text-splitters>=1.0,<2.0",
+  "langgraph>=1.0,<2.0",
+  "langgraph-checkpoint-sqlite>=3.0,<4.0",
+  "langsmith>=0.4,<1.0",
+  "numpy>=2.0,<3.0",
+  "PyJWT>=2.10,<3.0",
+  "pydantic-settings>=2.7,<3.0",
+  "pypdf>=5.0,<7.0",
+  "python-multipart>=0.0.20,<1.0",
+  "uvicorn[standard]>=0.34,<1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28,<1.0",
+  "httpx2>=2.0,<3.0",
+  "langgraph-checkpoint-postgres>=3.0,<4.0",
+  "opentelemetry-api>=1.36,<2.0",
+  "opentelemetry-exporter-otlp-proto-http>=1.36,<2.0",
+  "opentelemetry-sdk>=1.36,<2.0",
+  "pgvector>=0.4,<1.0",
+  "prometheus-client>=0.22,<1.0",
+  "psycopg[binary]>=3.2,<4.0",
+  "PyJWT[crypto]>=2.10,<3.0",
+  "pytest>=8.3,<10.0",
+  "pytest-cov>=6.0,<8.0",
+  "ruff>=0.9,<1.0",
+]
+demo = [
+  "httpx>=0.28,<1.0",
+  "streamlit>=1.49,<2.0",
+]
+reranker = [
+  "sentence-transformers>=5.0,<6.0",
+]
+production = [
+  "langgraph-checkpoint-postgres>=3.0,<4.0",
+  "pgvector>=0.4,<1.0",
+  "psycopg[binary]>=3.2,<4.0",
+  "PyJWT[crypto]>=2.10,<3.0",
+]
+observability = [
+  "opentelemetry-api>=1.36,<2.0",
+  "opentelemetry-exporter-otlp-proto-http>=1.36,<2.0",
+  "opentelemetry-sdk>=1.36,<2.0",
+  "prometheus-client>=0.22,<1.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["app", "frontend"]
+
+[tool.hatch.build]
+exclude = [
+  "/.coverage",
+  "/.pytest_cache",
+  "/.ruff_cache",
+  "/.venv",
+  "/dist*",
+  "/data/state/*.sqlite*",
+  "**/__pycache__",
+  "*.pyc",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+markers = [
+  "integration: requires external infrastructure",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
