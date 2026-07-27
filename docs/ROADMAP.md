@@ -29,7 +29,7 @@ OpsPilot 作为企业 Agentic RAG 参考实现，交付标准不是功能数量�
 ## P1：公开交付可信度
 
 - [x] 关联公开远程仓库，并补充可审阅的增量提交历史。
-- [x] 在远程 CI 留存质量、PostgreSQL、恢复演练和 Kubernetes 回滚证据
+- [x] 在远程 CI 留存质量、PostgreSQL 和恢复演练证据
   （[GitHub Actions #30199877047](https://github.com/sdhgngfh/opspilot-rag/actions/runs/30199877047)）。
 - [x] 使用 PostgreSQL 17/pgvector 执行集成测试与迁移状态检查。
 - [x] 使用隔离数据库完成备份恢复演练。
@@ -76,6 +76,6 @@ uv run streamlit run frontend/streamlit_app.py
 - 检索、阈值、切分或提示词变化：必须重跑基础、图级和访问权限评测。
 - 鉴权、ACL、工单或持久化变化：必须补充越权、审批屏障和幂等测试。
 - 数据库迁移变化：必须保持 expand-only，并完成漂移检查和隔离恢复演练。
-- 部署配置变化：必须通过 Kubernetes 静态门禁；对外声称可发布前还需真实集群证据。
+- 部署配置变化：必须通过静态门禁验证。
 - UI 变化：至少覆盖断连降级、问答成功路径和一次人工演示检查。
 - 新增外部服务：默认关闭，提供无密钥本地回退，并记录延迟、成本和数据边界。
