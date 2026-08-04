@@ -108,6 +108,19 @@ MIN_RELEVANCE_SCORE=0.18
 MAX_REWRITES=1
 ```
 
+接入 DeepSeek 等 OpenAI 兼容接口时（Embedding 保持本地模式）：
+
+```dotenv
+RAG_MODE=openai
+EMBEDDING_PROVIDER=local
+OPENAI_API_KEY=your-api-key
+OPENAI_BASE_URL=https://api.deepseek.com
+CHAT_MODEL=deepseek-v4-flash
+```
+
+配置后可用 `uv run python scripts/smoke_online.py --limit 3` 做真实模型冒烟验证，
+报告写入 `reports/online_smoke.json`。
+
 ## 项目结构
 
 ```
