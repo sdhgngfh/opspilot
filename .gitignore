@@ -11,6 +11,5 @@ data/index/*
 !data/index/.gitkeep
 data/state/*
 !data/state/.gitkeep
-reports/*
-!reports/.gitkeep
+!reports/*.json
 backups/

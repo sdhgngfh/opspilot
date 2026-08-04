@@ -1,0 +1,2351 @@
+{
+  "cases": 36,
+  "k": 4,
+  "comparison": {
+    "vector": {
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mrr": 0.951613,
+      "answer_keyword_recall": 0.709677,
+      "abstention_accuracy": 0.944444,
+      "average_latency_ms": 0.927,
+      "p95_latency_ms": 1.523
+    },
+    "hybrid": {
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mrr": 0.951613,
+      "answer_keyword_recall": 0.774194,
+      "abstention_accuracy": 1.0,
+      "average_latency_ms": 2.385,
+      "p95_latency_ms": 2.857
+    },
+    "hybrid_rerank": {
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mrr": 0.983871,
+      "answer_keyword_recall": 0.795699,
+      "abstention_accuracy": 1.0,
+      "average_latency_ms": 2.623,
+      "p95_latency_ms": 3.793
+    }
+  },
+  "reports": {
+    "vector": {
+      "retrieval_strategy": "vector",
+      "cases": 36,
+      "k": 4,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mrr": 0.951613,
+      "answer_keyword_recall": 0.709677,
+      "abstention_accuracy": 0.944444,
+      "average_latency_ms": 0.927,
+      "p95_latency_ms": 1.523,
+      "breakdowns": {
+        "question_type": [
+          {
+            "dimension": "question_type",
+            "value": "error_code",
+            "cases": 4,
+            "answerable_cases": 4,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 0.75,
+            "answer_keyword_recall": 0.166667,
+            "abstention_accuracy": 0.5,
+            "average_latency_ms": 0.818,
+            "p95_latency_ms": 0.945
+          },
+          {
+            "dimension": "question_type",
+            "value": "out_of_scope",
+            "cases": 5,
+            "answerable_cases": 0,
+            "hit_rate_at_k": 0.0,
+            "recall_at_k": 0.0,
+            "mrr": 0.0,
+            "answer_keyword_recall": 0.0,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 0.848,
+            "p95_latency_ms": 1.067
+          },
+          {
+            "dimension": "question_type",
+            "value": "policy",
+            "cases": 8,
+            "answerable_cases": 8,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 0.9375,
+            "answer_keyword_recall": 0.75,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 1.032,
+            "p95_latency_ms": 1.601
+          },
+          {
+            "dimension": "question_type",
+            "value": "procedure",
+            "cases": 9,
+            "answerable_cases": 9,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 1.0,
+            "answer_keyword_recall": 0.814815,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 0.905,
+            "p95_latency_ms": 1.368
+          },
+          {
+            "dimension": "question_type",
+            "value": "troubleshooting",
+            "cases": 10,
+            "answerable_cases": 10,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 1.0,
+            "answer_keyword_recall": 0.8,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 0.945,
+            "p95_latency_ms": 1.523
+          }
+        ],
+        "difficulty": [
+          {
+            "dimension": "difficulty",
+            "value": "easy",
+            "cases": 11,
+            "answerable_cases": 9,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 0.944444,
+            "answer_keyword_recall": 0.814815,
+            "abstention_accuracy": 0.909091,
+            "average_latency_ms": 0.988,
+            "p95_latency_ms": 1.601
+          },
+          {
+            "dimension": "difficulty",
+            "value": "hard",
+            "cases": 12,
+            "answerable_cases": 10,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 0.95,
+            "answer_keyword_recall": 0.633333,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 0.953,
+            "p95_latency_ms": 1.523
+          },
+          {
+            "dimension": "difficulty",
+            "value": "medium",
+            "cases": 13,
+            "answerable_cases": 12,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 0.958333,
+            "answer_keyword_recall": 0.694444,
+            "abstention_accuracy": 0.923077,
+            "average_latency_ms": 0.851,
+            "p95_latency_ms": 1.368
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "perm-01",
+          "question": "为什么只设置菜单权限，还是不能限制用户只看本部门销售订单？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "u9c_permissions.md",
+            "user_access_troubleshooting.md",
+            "approval_workflow.md",
+            "integration_error_codes.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 1.601
+        },
+        {
+          "id": "perm-02",
+          "question": "用户仍能看到其他部门订单，应该检查什么？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "u9c_permissions.md",
+            "sales_order_troubleshooting.md",
+            "integration_error_codes.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 1.523
+        },
+        {
+          "id": "perm-03",
+          "question": "部门数据权限配置完成后怎样验证？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "u9c_permissions.md",
+            "u9c_permissions.md",
+            "user_access_troubleshooting.md",
+            "incident_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 1.368
+        },
+        {
+          "id": "order-01",
+          "question": "销售订单审核失败要先检查哪些信息？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "approval_workflow.md",
+            "master_data_handbook.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 1.497
+        },
+        {
+          "id": "order-02",
+          "question": "接口超时后如何避免重复生成销售订单？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "master_data_handbook.md",
+            "integration_error_codes.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.0,
+          "latency_ms": 0.807
+        },
+        {
+          "id": "order-03",
+          "question": "为什么有现存量仍提示可用量不足？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "backup_recovery.md",
+            "integration_error_codes.md",
+            "incident_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.77
+        },
+        {
+          "id": "ticket-01",
+          "question": "ERP 运维工单必须包含哪些信息？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "approval_workflow.md",
+            "u9c_permissions.md",
+            "sales_order_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.832
+        },
+        {
+          "id": "ticket-02",
+          "question": "发生越权访问时应如何处理？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "user_access_troubleshooting.md",
+            "integration_error_codes.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.769
+        },
+        {
+          "id": "code-01",
+          "question": "接口返回 ORD-409-DUP 后应该怎么重试？",
+          "answerable": true,
+          "question_type": "error_code",
+          "difficulty": "easy",
+          "grounded": false,
+          "retrieved_sources": [
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md",
+            "master_data_handbook.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.0,
+          "latency_ms": 0.764
+        },
+        {
+          "id": "code-02",
+          "question": "AUTH-403-DATA 是菜单权限不足吗？应检查哪些配置？",
+          "answerable": true,
+          "question_type": "error_code",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "integration_error_codes.md",
+            "u9c_permissions.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 0.5,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.0,
+          "latency_ms": 0.945
+        },
+        {
+          "id": "code-03",
+          "question": "INV-422-RESERVE 错误只看现存量可以吗？",
+          "answerable": true,
+          "question_type": "error_code",
+          "difficulty": "medium",
+          "grounded": false,
+          "retrieved_sources": [
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md",
+            "backup_recovery.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.0,
+          "latency_ms": 0.789
+        },
+        {
+          "id": "approval-01",
+          "question": "销售订单一直停在审批中，排查哪些地方？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "approval_workflow.md",
+            "sales_order_troubleshooting.md",
+            "integration_error_codes.md",
+            "master_data_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.796
+        },
+        {
+          "id": "approval-02",
+          "question": "已审核订单修改关键字段前为什么要弃审？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "approval_workflow.md",
+            "incident_handbook.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 0.5,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 1.074
+        },
+        {
+          "id": "access-01",
+          "question": "用户能登录但打不开业务菜单，是数据权限问题吗？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "u9c_permissions.md",
+            "incident_handbook.md",
+            "integration_error_codes.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 0.827
+        },
+        {
+          "id": "access-02",
+          "question": "登录会话频繁失效应该检查什么？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "u9c_permissions.md",
+            "sales_order_troubleshooting.md",
+            "integration_error_codes.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.766
+        },
+        {
+          "id": "master-01",
+          "question": "客户在销售组织下未启用会造成什么问题？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.846
+        },
+        {
+          "id": "backup-01",
+          "question": "为什么备份任务成功还必须做恢复演练？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "incident_handbook.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.776
+        },
+        {
+          "id": "backup-02",
+          "question": "发现数据疑似误删除后第一步该怎么做？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "incident_handbook.md",
+            "u9c_permissions.md",
+            "master_data_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 1.0
+        },
+        {
+          "id": "unknown-01",
+          "question": "公司食堂周一中午供应什么菜？",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "easy",
+          "grounded": false,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "sales_order_troubleshooting.md",
+            "user_access_troubleshooting.md",
+            "backup_recovery.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 1.067
+        },
+        {
+          "id": "unknown-02",
+          "question": "明天纽约的天气和最高气温是多少？",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "medium",
+          "grounded": false,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "u9c_permissions.md",
+            "sales_order_troubleshooting.md",
+            "incident_handbook.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 0.822
+        },
+        {
+          "id": "unknown-03",
+          "question": "帮我查一下今年公司年会抽奖的一等奖名单。",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "hard",
+          "grounded": false,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "integration_error_codes.md",
+            "u9c_permissions.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 0.774
+        },
+        {
+          "id": "approval-03",
+          "question": "紧急订单能否线下让管理员直接跳过信用控制和审计？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "approval_workflow.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 0.843
+        },
+        {
+          "id": "master-02",
+          "question": "物料销售单位和基本单位不一致时，订单为什么可能校验失败？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.844
+        },
+        {
+          "id": "master-03",
+          "question": "停用主数据前需要核对哪些未完成业务？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "backup_recovery.md",
+            "integration_error_codes.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.795
+        },
+        {
+          "id": "master-04",
+          "question": "批量导入主数据失败后，审计记录至少要保留什么？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "approval_workflow.md",
+            "backup_recovery.md",
+            "sales_order_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.971
+        },
+        {
+          "id": "backup-03",
+          "question": "生产数据库的增量、全量备份频率和保存要求是什么？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "master_data_handbook.md",
+            "integration_error_codes.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.874
+        },
+        {
+          "id": "backup-04",
+          "question": "恢复后只确认数据库能启动就可以验收吗？还要检查什么？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "integration_error_codes.md",
+            "master_data_handbook.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.805
+        },
+        {
+          "id": "ticket-03",
+          "question": "生产核心业务完全中断且没有替代方案应定为哪个优先级？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "backup_recovery.md",
+            "u9c_permissions.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.983
+        },
+        {
+          "id": "ticket-04",
+          "question": "临时绕行恢复业务后能直接关闭工单吗？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "sales_order_troubleshooting.md",
+            "backup_recovery.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 0.808
+        },
+        {
+          "id": "access-03",
+          "question": "账号连续登录失败被锁定后应该怎样处理？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "incident_handbook.md",
+            "master_data_handbook.md",
+            "sales_order_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 0.77
+        },
+        {
+          "id": "access-04",
+          "question": "为了排障临时授予全组织权限是否合适，结束后要做什么？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "u9c_permissions.md",
+            "approval_workflow.md",
+            "incident_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 1.093
+        },
+        {
+          "id": "code-04",
+          "question": "CUST-400-MASTER 客户主数据不完整应该怎样排查？",
+          "answerable": true,
+          "question_type": "error_code",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "integration_error_codes.md",
+            "user_access_troubleshooting.md",
+            "sales_order_troubleshooting.md"
+          ],
+          "reciprocal_rank": 0.5,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 0.775
+        },
+        {
+          "id": "code-05",
+          "question": "接口故障排查需要保存哪些跟踪字段，日志里哪些信息必须脱敏？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md",
+            "approval_workflow.md",
+            "incident_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 0.8
+        },
+        {
+          "id": "order-04",
+          "question": "订单从草稿提交并审核后，关键字段的修改规则有什么变化？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "approval_workflow.md",
+            "master_data_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 1.011
+        },
+        {
+          "id": "unknown-04",
+          "question": "今天沪深 300 指数收盘点位是多少？",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "easy",
+          "grounded": false,
+          "retrieved_sources": [
+            "u9c_permissions.md",
+            "integration_error_codes.md",
+            "approval_workflow.md",
+            "backup_recovery.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 0.805
+        },
+        {
+          "id": "unknown-05",
+          "question": "根据尚未提供的劳动合同，计算我的竞业补偿金。",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "hard",
+          "grounded": false,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "approval_workflow.md",
+            "integration_error_codes.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 0.774
+        }
+      ]
+    },
+    "hybrid": {
+      "retrieval_strategy": "hybrid",
+      "cases": 36,
+      "k": 4,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mrr": 0.951613,
+      "answer_keyword_recall": 0.774194,
+      "abstention_accuracy": 1.0,
+      "average_latency_ms": 2.385,
+      "p95_latency_ms": 2.857,
+      "breakdowns": {
+        "question_type": [
+          {
+            "dimension": "question_type",
+            "value": "error_code",
+            "cases": 4,
+            "answerable_cases": 4,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 0.75,
+            "answer_keyword_recall": 0.666667,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.288,
+            "p95_latency_ms": 2.52
+          },
+          {
+            "dimension": "question_type",
+            "value": "out_of_scope",
+            "cases": 5,
+            "answerable_cases": 0,
+            "hit_rate_at_k": 0.0,
+            "recall_at_k": 0.0,
+            "mrr": 0.0,
+            "answer_keyword_recall": 0.0,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.246,
+            "p95_latency_ms": 2.366
+          },
+          {
+            "dimension": "question_type",
+            "value": "policy",
+            "cases": 8,
+            "answerable_cases": 8,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 0.9375,
+            "answer_keyword_recall": 0.75,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.54,
+            "p95_latency_ms": 2.868
+          },
+          {
+            "dimension": "question_type",
+            "value": "procedure",
+            "cases": 9,
+            "answerable_cases": 9,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 1.0,
+            "answer_keyword_recall": 0.814815,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.396,
+            "p95_latency_ms": 2.573
+          },
+          {
+            "dimension": "question_type",
+            "value": "troubleshooting",
+            "cases": 10,
+            "answerable_cases": 10,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 1.0,
+            "answer_keyword_recall": 0.8,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.361,
+            "p95_latency_ms": 2.632
+          }
+        ],
+        "difficulty": [
+          {
+            "dimension": "difficulty",
+            "value": "easy",
+            "cases": 11,
+            "answerable_cases": 9,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 0.944444,
+            "answer_keyword_recall": 0.925926,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.355,
+            "p95_latency_ms": 2.682
+          },
+          {
+            "dimension": "difficulty",
+            "value": "hard",
+            "cases": 12,
+            "answerable_cases": 10,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 0.95,
+            "answer_keyword_recall": 0.633333,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.435,
+            "p95_latency_ms": 2.868
+          },
+          {
+            "dimension": "difficulty",
+            "value": "medium",
+            "cases": 13,
+            "answerable_cases": 12,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 0.958333,
+            "answer_keyword_recall": 0.777778,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.366,
+            "p95_latency_ms": 2.632
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "perm-01",
+          "question": "为什么只设置菜单权限，还是不能限制用户只看本部门销售订单？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "u9c_permissions.md",
+            "user_access_troubleshooting.md",
+            "integration_error_codes.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.604
+        },
+        {
+          "id": "perm-02",
+          "question": "用户仍能看到其他部门订单，应该检查什么？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "u9c_permissions.md",
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 2.408
+        },
+        {
+          "id": "perm-03",
+          "question": "部门数据权限配置完成后怎样验证？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "u9c_permissions.md",
+            "u9c_permissions.md",
+            "user_access_troubleshooting.md",
+            "backup_recovery.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 2.334
+        },
+        {
+          "id": "order-01",
+          "question": "销售订单审核失败要先检查哪些信息？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "approval_workflow.md",
+            "master_data_handbook.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.232
+        },
+        {
+          "id": "order-02",
+          "question": "接口超时后如何避免重复生成销售订单？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "integration_error_codes.md",
+            "master_data_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.0,
+          "latency_ms": 2.252
+        },
+        {
+          "id": "order-03",
+          "question": "为什么有现存量仍提示可用量不足？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "integration_error_codes.md",
+            "backup_recovery.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.478
+        },
+        {
+          "id": "ticket-01",
+          "question": "ERP 运维工单必须包含哪些信息？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "u9c_permissions.md",
+            "integration_error_codes.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.545
+        },
+        {
+          "id": "ticket-02",
+          "question": "发生越权访问时应如何处理？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "integration_error_codes.md",
+            "user_access_troubleshooting.md",
+            "backup_recovery.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.149
+        },
+        {
+          "id": "code-01",
+          "question": "接口返回 ORD-409-DUP 后应该怎么重试？",
+          "answerable": true,
+          "question_type": "error_code",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "master_data_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.072
+        },
+        {
+          "id": "code-02",
+          "question": "AUTH-403-DATA 是菜单权限不足吗？应检查哪些配置？",
+          "answerable": true,
+          "question_type": "error_code",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "integration_error_codes.md",
+            "u9c_permissions.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 0.5,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.0,
+          "latency_ms": 2.268
+        },
+        {
+          "id": "code-03",
+          "question": "INV-422-RESERVE 错误只看现存量可以吗？",
+          "answerable": true,
+          "question_type": "error_code",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md",
+            "approval_workflow.md",
+            "backup_recovery.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.29
+        },
+        {
+          "id": "approval-01",
+          "question": "销售订单一直停在审批中，排查哪些地方？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "approval_workflow.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "integration_error_codes.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.489
+        },
+        {
+          "id": "approval-02",
+          "question": "已审核订单修改关键字段前为什么要弃审？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "approval_workflow.md",
+            "u9c_permissions.md",
+            "integration_error_codes.md"
+          ],
+          "reciprocal_rank": 0.5,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 2.311
+        },
+        {
+          "id": "access-01",
+          "question": "用户能登录但打不开业务菜单，是数据权限问题吗？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "u9c_permissions.md",
+            "incident_handbook.md",
+            "integration_error_codes.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 2.146
+        },
+        {
+          "id": "access-02",
+          "question": "登录会话频繁失效应该检查什么？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "u9c_permissions.md",
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.15
+        },
+        {
+          "id": "master-01",
+          "question": "客户在销售组织下未启用会造成什么问题？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.391
+        },
+        {
+          "id": "backup-01",
+          "question": "为什么备份任务成功还必须做恢复演练？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "incident_handbook.md",
+            "sales_order_troubleshooting.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.311
+        },
+        {
+          "id": "backup-02",
+          "question": "发现数据疑似误删除后第一步该怎么做？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "incident_handbook.md",
+            "master_data_handbook.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.4
+        },
+        {
+          "id": "unknown-01",
+          "question": "公司食堂周一中午供应什么菜？",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "easy",
+          "grounded": false,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "backup_recovery.md",
+            "approval_workflow.md",
+            "sales_order_troubleshooting.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 2.198
+        },
+        {
+          "id": "unknown-02",
+          "question": "明天纽约的天气和最高气温是多少？",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "medium",
+          "grounded": false,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "incident_handbook.md",
+            "u9c_permissions.md",
+            "sales_order_troubleshooting.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 2.111
+        },
+        {
+          "id": "unknown-03",
+          "question": "帮我查一下今年公司年会抽奖的一等奖名单。",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "hard",
+          "grounded": false,
+          "retrieved_sources": [
+            "approval_workflow.md",
+            "master_data_handbook.md",
+            "integration_error_codes.md",
+            "backup_recovery.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 2.287
+        },
+        {
+          "id": "approval-03",
+          "question": "紧急订单能否线下让管理员直接跳过信用控制和审计？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "approval_workflow.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 2.868
+        },
+        {
+          "id": "master-02",
+          "question": "物料销售单位和基本单位不一致时，订单为什么可能校验失败？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.632
+        },
+        {
+          "id": "master-03",
+          "question": "停用主数据前需要核对哪些未完成业务？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "backup_recovery.md",
+            "integration_error_codes.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.51
+        },
+        {
+          "id": "master-04",
+          "question": "批量导入主数据失败后，审计记录至少要保留什么？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "approval_workflow.md",
+            "backup_recovery.md",
+            "sales_order_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.367
+        },
+        {
+          "id": "backup-03",
+          "question": "生产数据库的增量、全量备份频率和保存要求是什么？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "master_data_handbook.md",
+            "approval_workflow.md",
+            "integration_error_codes.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.247
+        },
+        {
+          "id": "backup-04",
+          "question": "恢复后只确认数据库能启动就可以验收吗？还要检查什么？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "integration_error_codes.md",
+            "master_data_handbook.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.316
+        },
+        {
+          "id": "ticket-03",
+          "question": "生产核心业务完全中断且没有替代方案应定为哪个优先级？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "backup_recovery.md",
+            "approval_workflow.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.682
+        },
+        {
+          "id": "ticket-04",
+          "question": "临时绕行恢复业务后能直接关闭工单吗？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "sales_order_troubleshooting.md",
+            "backup_recovery.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 2.573
+        },
+        {
+          "id": "access-03",
+          "question": "账号连续登录失败被锁定后应该怎样处理？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "incident_handbook.md",
+            "master_data_handbook.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.435
+        },
+        {
+          "id": "access-04",
+          "question": "为了排障临时授予全组织权限是否合适，结束后要做什么？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "u9c_permissions.md",
+            "approval_workflow.md",
+            "incident_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 2.857
+        },
+        {
+          "id": "code-04",
+          "question": "CUST-400-MASTER 客户主数据不完整应该怎样排查？",
+          "answerable": true,
+          "question_type": "error_code",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "integration_error_codes.md",
+            "user_access_troubleshooting.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 0.5,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 2.52
+        },
+        {
+          "id": "code-05",
+          "question": "接口故障排查需要保存哪些跟踪字段，日志里哪些信息必须脱敏？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md",
+            "incident_handbook.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 2.371
+        },
+        {
+          "id": "order-04",
+          "question": "订单从草稿提交并审核后，关键字段的修改规则有什么变化？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "approval_workflow.md",
+            "master_data_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 2.44
+        },
+        {
+          "id": "unknown-04",
+          "question": "今天沪深 300 指数收盘点位是多少？",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "easy",
+          "grounded": false,
+          "retrieved_sources": [
+            "approval_workflow.md",
+            "integration_error_codes.md",
+            "backup_recovery.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 2.267
+        },
+        {
+          "id": "unknown-05",
+          "question": "根据尚未提供的劳动合同，计算我的竞业补偿金。",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "hard",
+          "grounded": false,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "approval_workflow.md",
+            "sales_order_troubleshooting.md",
+            "integration_error_codes.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 2.366
+        }
+      ]
+    },
+    "hybrid_rerank": {
+      "retrieval_strategy": "hybrid_rerank",
+      "cases": 36,
+      "k": 4,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mrr": 0.983871,
+      "answer_keyword_recall": 0.795699,
+      "abstention_accuracy": 1.0,
+      "average_latency_ms": 2.623,
+      "p95_latency_ms": 3.793,
+      "breakdowns": {
+        "question_type": [
+          {
+            "dimension": "question_type",
+            "value": "error_code",
+            "cases": 4,
+            "answerable_cases": 4,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 1.0,
+            "answer_keyword_recall": 0.833333,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.845,
+            "p95_latency_ms": 3.793
+          },
+          {
+            "dimension": "question_type",
+            "value": "out_of_scope",
+            "cases": 5,
+            "answerable_cases": 0,
+            "hit_rate_at_k": 0.0,
+            "recall_at_k": 0.0,
+            "mrr": 0.0,
+            "answer_keyword_recall": 0.0,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.438,
+            "p95_latency_ms": 2.735
+          },
+          {
+            "dimension": "question_type",
+            "value": "policy",
+            "cases": 8,
+            "answerable_cases": 8,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 0.9375,
+            "answer_keyword_recall": 0.75,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.732,
+            "p95_latency_ms": 4.446
+          },
+          {
+            "dimension": "question_type",
+            "value": "procedure",
+            "cases": 9,
+            "answerable_cases": 9,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 1.0,
+            "answer_keyword_recall": 0.814815,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.45,
+            "p95_latency_ms": 2.776
+          },
+          {
+            "dimension": "question_type",
+            "value": "troubleshooting",
+            "cases": 10,
+            "answerable_cases": 10,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 1.0,
+            "answer_keyword_recall": 0.8,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.695,
+            "p95_latency_ms": 3.672
+          }
+        ],
+        "difficulty": [
+          {
+            "dimension": "difficulty",
+            "value": "easy",
+            "cases": 11,
+            "answerable_cases": 9,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 1.0,
+            "answer_keyword_recall": 0.925926,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.572,
+            "p95_latency_ms": 3.793
+          },
+          {
+            "dimension": "difficulty",
+            "value": "hard",
+            "cases": 12,
+            "answerable_cases": 10,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 0.95,
+            "answer_keyword_recall": 0.633333,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.695,
+            "p95_latency_ms": 4.446
+          },
+          {
+            "dimension": "difficulty",
+            "value": "medium",
+            "cases": 13,
+            "answerable_cases": 12,
+            "hit_rate_at_k": 1.0,
+            "recall_at_k": 1.0,
+            "mrr": 1.0,
+            "answer_keyword_recall": 0.833333,
+            "abstention_accuracy": 1.0,
+            "average_latency_ms": 2.6,
+            "p95_latency_ms": 3.672
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "perm-01",
+          "question": "为什么只设置菜单权限，还是不能限制用户只看本部门销售订单？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "u9c_permissions.md",
+            "user_access_troubleshooting.md",
+            "integration_error_codes.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.75
+        },
+        {
+          "id": "perm-02",
+          "question": "用户仍能看到其他部门订单，应该检查什么？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "u9c_permissions.md",
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 2.773
+        },
+        {
+          "id": "perm-03",
+          "question": "部门数据权限配置完成后怎样验证？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "u9c_permissions.md",
+            "u9c_permissions.md",
+            "user_access_troubleshooting.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 2.461
+        },
+        {
+          "id": "order-01",
+          "question": "销售订单审核失败要先检查哪些信息？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "approval_workflow.md",
+            "u9c_permissions.md",
+            "master_data_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.229
+        },
+        {
+          "id": "order-02",
+          "question": "接口超时后如何避免重复生成销售订单？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "integration_error_codes.md",
+            "u9c_permissions.md",
+            "master_data_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.0,
+          "latency_ms": 3.524
+        },
+        {
+          "id": "order-03",
+          "question": "为什么有现存量仍提示可用量不足？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "integration_error_codes.md",
+            "backup_recovery.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.541
+        },
+        {
+          "id": "ticket-01",
+          "question": "ERP 运维工单必须包含哪些信息？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "integration_error_codes.md",
+            "u9c_permissions.md",
+            "master_data_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.151
+        },
+        {
+          "id": "ticket-02",
+          "question": "发生越权访问时应如何处理？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "integration_error_codes.md",
+            "backup_recovery.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.245
+        },
+        {
+          "id": "code-01",
+          "question": "接口返回 ORD-409-DUP 后应该怎么重试？",
+          "answerable": true,
+          "question_type": "error_code",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "master_data_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.336
+        },
+        {
+          "id": "code-02",
+          "question": "AUTH-403-DATA 是菜单权限不足吗？应检查哪些配置？",
+          "answerable": true,
+          "question_type": "error_code",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "integration_error_codes.md",
+            "user_access_troubleshooting.md",
+            "u9c_permissions.md",
+            "master_data_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 2.649
+        },
+        {
+          "id": "code-03",
+          "question": "INV-422-RESERVE 错误只看现存量可以吗？",
+          "answerable": true,
+          "question_type": "error_code",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md",
+            "user_access_troubleshooting.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.604
+        },
+        {
+          "id": "approval-01",
+          "question": "销售订单一直停在审批中，排查哪些地方？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "approval_workflow.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "master_data_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.639
+        },
+        {
+          "id": "approval-02",
+          "question": "已审核订单修改关键字段前为什么要弃审？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "approval_workflow.md",
+            "u9c_permissions.md",
+            "integration_error_codes.md"
+          ],
+          "reciprocal_rank": 0.5,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 2.435
+        },
+        {
+          "id": "access-01",
+          "question": "用户能登录但打不开业务菜单，是数据权限问题吗？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "u9c_permissions.md",
+            "incident_handbook.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 2.542
+        },
+        {
+          "id": "access-02",
+          "question": "登录会话频繁失效应该检查什么？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "u9c_permissions.md",
+            "integration_error_codes.md",
+            "incident_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.169
+        },
+        {
+          "id": "master-01",
+          "question": "客户在销售组织下未启用会造成什么问题？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "integration_error_codes.md",
+            "u9c_permissions.md",
+            "sales_order_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.324
+        },
+        {
+          "id": "backup-01",
+          "question": "为什么备份任务成功还必须做恢复演练？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "incident_handbook.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.384
+        },
+        {
+          "id": "backup-02",
+          "question": "发现数据疑似误删除后第一步该怎么做？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "incident_handbook.md",
+            "master_data_handbook.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.436
+        },
+        {
+          "id": "unknown-01",
+          "question": "公司食堂周一中午供应什么菜？",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "easy",
+          "grounded": false,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "sales_order_troubleshooting.md",
+            "backup_recovery.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 2.735
+        },
+        {
+          "id": "unknown-02",
+          "question": "明天纽约的天气和最高气温是多少？",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "medium",
+          "grounded": false,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "u9c_permissions.md",
+            "sales_order_troubleshooting.md",
+            "incident_handbook.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 2.49
+        },
+        {
+          "id": "unknown-03",
+          "question": "帮我查一下今年公司年会抽奖的一等奖名单。",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "hard",
+          "grounded": false,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "integration_error_codes.md",
+            "approval_workflow.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 2.371
+        },
+        {
+          "id": "approval-03",
+          "question": "紧急订单能否线下让管理员直接跳过信用控制和审计？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "approval_workflow.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 2.379
+        },
+        {
+          "id": "master-02",
+          "question": "物料销售单位和基本单位不一致时，订单为什么可能校验失败？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "sales_order_troubleshooting.md",
+            "u9c_permissions.md",
+            "integration_error_codes.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 3.672
+        },
+        {
+          "id": "master-03",
+          "question": "停用主数据前需要核对哪些未完成业务？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "integration_error_codes.md",
+            "backup_recovery.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.622
+        },
+        {
+          "id": "master-04",
+          "question": "批量导入主数据失败后，审计记录至少要保留什么？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "approval_workflow.md",
+            "backup_recovery.md",
+            "sales_order_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.477
+        },
+        {
+          "id": "backup-03",
+          "question": "生产数据库的增量、全量备份频率和保存要求是什么？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "master_data_handbook.md",
+            "approval_workflow.md",
+            "incident_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.448
+        },
+        {
+          "id": "backup-04",
+          "question": "恢复后只确认数据库能启动就可以验收吗？还要检查什么？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "backup_recovery.md",
+            "integration_error_codes.md",
+            "master_data_handbook.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.776
+        },
+        {
+          "id": "ticket-03",
+          "question": "生产核心业务完全中断且没有替代方案应定为哪个优先级？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "backup_recovery.md",
+            "u9c_permissions.md",
+            "approval_workflow.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.574
+        },
+        {
+          "id": "ticket-04",
+          "question": "临时绕行恢复业务后能直接关闭工单吗？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "incident_handbook.md",
+            "sales_order_troubleshooting.md",
+            "backup_recovery.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 2.397
+        },
+        {
+          "id": "access-03",
+          "question": "账号连续登录失败被锁定后应该怎样处理？",
+          "answerable": true,
+          "question_type": "troubleshooting",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "incident_handbook.md",
+            "u9c_permissions.md",
+            "backup_recovery.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 1.0,
+          "latency_ms": 2.532
+        },
+        {
+          "id": "access-04",
+          "question": "为了排障临时授予全组织权限是否合适，结束后要做什么？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "user_access_troubleshooting.md",
+            "u9c_permissions.md",
+            "approval_workflow.md",
+            "incident_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 4.446
+        },
+        {
+          "id": "code-04",
+          "question": "CUST-400-MASTER 客户主数据不完整应该怎样排查？",
+          "answerable": true,
+          "question_type": "error_code",
+          "difficulty": "easy",
+          "grounded": true,
+          "retrieved_sources": [
+            "integration_error_codes.md",
+            "master_data_handbook.md",
+            "u9c_permissions.md",
+            "user_access_troubleshooting.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.666667,
+          "latency_ms": 3.793
+        },
+        {
+          "id": "code-05",
+          "question": "接口故障排查需要保存哪些跟踪字段，日志里哪些信息必须脱敏？",
+          "answerable": true,
+          "question_type": "procedure",
+          "difficulty": "medium",
+          "grounded": true,
+          "retrieved_sources": [
+            "integration_error_codes.md",
+            "sales_order_troubleshooting.md",
+            "incident_handbook.md",
+            "u9c_permissions.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 2.487
+        },
+        {
+          "id": "order-04",
+          "question": "订单从草稿提交并审核后，关键字段的修改规则有什么变化？",
+          "answerable": true,
+          "question_type": "policy",
+          "difficulty": "hard",
+          "grounded": true,
+          "retrieved_sources": [
+            "sales_order_troubleshooting.md",
+            "approval_workflow.md",
+            "u9c_permissions.md",
+            "master_data_handbook.md"
+          ],
+          "reciprocal_rank": 1.0,
+          "recall_at_k": 1.0,
+          "keyword_recall": 0.333333,
+          "latency_ms": 2.444
+        },
+        {
+          "id": "unknown-04",
+          "question": "今天沪深 300 指数收盘点位是多少？",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "easy",
+          "grounded": false,
+          "retrieved_sources": [
+            "integration_error_codes.md",
+            "approval_workflow.md",
+            "u9c_permissions.md",
+            "backup_recovery.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 2.408
+        },
+        {
+          "id": "unknown-05",
+          "question": "根据尚未提供的劳动合同，计算我的竞业补偿金。",
+          "answerable": false,
+          "question_type": "out_of_scope",
+          "difficulty": "hard",
+          "grounded": false,
+          "retrieved_sources": [
+            "master_data_handbook.md",
+            "approval_workflow.md",
+            "sales_order_troubleshooting.md",
+            "integration_error_codes.md"
+          ],
+          "reciprocal_rank": 0.0,
+          "recall_at_k": 0.0,
+          "keyword_recall": null,
+          "latency_ms": 2.188
+        }
+      ]
+    }
+  }
+}

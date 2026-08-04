@@ -64,9 +64,9 @@ flowchart TD
 
 | 策略 | Hit Rate@4 | MRR | 答案关键词召回 | 拒答准确率 |
 |---|---:|---:|---:|---:|
-| 仅向量 | 1.000 | 0.952 | 0.720 | 0.944 |
-| 向量 + BM25 + RRF | 1.000 | 0.952 | 0.785 | 1.000 |
-| 混合检索 + 重排 | 1.000 | 0.984 | 0.806 | 1.000 |
+| 仅向量 | 1.000 | 0.952 | 0.710 | 0.944 |
+| 向量 + BM25 + RRF | 1.000 | 0.952 | 0.774 | 1.000 |
+| 混合检索 + 重排 | 1.000 | 0.984 | 0.796 | 1.000 |
 
 ### LangGraph 对照
 在 10 条包含口语化弱查询、精确错误码和无答案问题的图级数据上：
@@ -76,6 +76,11 @@ flowchart TD
 | 回答/拒答决策准确率 | 0.700 | 1.000 |
 | 期望来源命中率 | 0.571 | 1.000 |
 | 答案关键词召回 | 0.429 | 0.643 |
+
+以上数字由 `scripts/evaluate.py`、`scripts/evaluate_graph.py` 和
+`scripts/benchmark_retrieval.py` 在本地 local 模式重新生成，报告见
+`reports/evaluation.json`、`reports/graph_evaluation.json` 和
+`reports/retrieval_comparison.json`。
 
 ## 快速开始
 

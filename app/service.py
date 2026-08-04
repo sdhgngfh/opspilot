@@ -32,25 +32,43 @@ class RAGService:
     def reindex(self) -> IngestResponse:
         return IngestResponse(**self.index.rebuild())
 
-    def retrieve(self, question: str, top_k: int | None = None, *, strategy: RetrievalStrategy | None = None) -> list[RetrievalHit]:
+    def retrieve(
+        self,
+        question: str,
+        top_k: int | None = None,
+        *,
+        strategy: RetrievalStrategy | None = None,
+    ) -> list[RetrievalHit]:
         k = top_k or self.settings.top_k
         active_strategy = strategy or self.settings.retrieval_strategy
         return self.index.search(question, k=k, strategy=active_strategy)
 
-    def select_evidence(self, raw_hits: list[RetrievalHit], *, strategy: RetrievalStrategy | None = None) -> list[RetrievalHit]:
+    def select_evidence(
+        self,
+        raw_hits: list[RetrievalHit],
+        *,
+        strategy: RetrievalStrategy | None = None,
+    ) -> list[RetrievalHit]:
         active_strategy = strategy or self.settings.retrieval_strategy
         return [
             hit for hit in raw_hits
             if hit.score >= self.settings.min_relevance_score
-            and (active_strategy == "vector" or hit.vector_score >= self.settings.min_relevance_score
-                 or (hit.bm25_score >= self.settings.min_bm25_score and hit.lexical_score >= self.settings.min_lexical_coverage))
+            and (
+                active_strategy == "vector"
+                or hit.vector_score >= self.settings.min_relevance_score
+                or (
+                    hit.bm25_score >= self.settings.min_bm25_score
+                    and hit.lexical_score >= self.settings.min_lexical_coverage
+                )
+            )
         ]
 
     def evidence_score(self, raw_hits: list[RetrievalHit]) -> float:
         if not raw_hits:
             return 0.0
         top = raw_hits[0]
-        return max(0.0, min(0.65 * top.score + 0.35 * max(top.vector_score, top.bm25_score * top.lexical_score), 1.0))
+        lexical = top.bm25_score * top.lexical_score
+        return max(0.0, min(0.65 * top.score + 0.35 * max(top.vector_score, lexical), 1.0))
 
     @staticmethod
     def evidence_reason(raw_hits: list[RetrievalHit], selected_hits: list[RetrievalHit]) -> str:
@@ -58,7 +76,10 @@ class RAGService:
             return "检索器未返回候选证据"
         top = raw_hits[0]
         if selected_hits:
-            return f"证据通过双信号门控：综合分={top.score:.3f}，向量分={top.vector_score:.3f}，BM25={top.bm25_score:.3f}"
+            return (
+                f"证据通过双信号门控：综合分={top.score:.3f}，"
+                f"向量分={top.vector_score:.3f}，BM25={top.bm25_score:.3f}"
+            )
         return f"候选证据未通过双信号门控：综合分={top.score:.3f}"
 
     @staticmethod
@@ -78,7 +99,20 @@ class RAGService:
         started = time.perf_counter()
         raw_hits = self.retrieve(question, top_k)
         hits = self.select_evidence(raw_hits)
+        latency_ms = round((time.perf_counter() - started) * 1000, 3)
         if not hits:
-            return AskResponse(question=question, answer=REFUSAL, grounded=False, citations=[], latency_ms=round((time.perf_counter() - started) * 1000, 3))
+            return AskResponse(
+                question=question,
+                answer=REFUSAL,
+                grounded=False,
+                citations=[],
+                latency_ms=latency_ms,
+            )
         answer = self.generator.generate(question, hits)
-        return AskResponse(question=question, answer=answer, grounded=True, citations=self.build_citations(hits), latency_ms=round((time.perf_counter() - started) * 1000, 3))
+        return AskResponse(
+            question=question,
+            answer=answer,
+            grounded=True,
+            citations=self.build_citations(hits),
+            latency_ms=latency_ms,
+        )

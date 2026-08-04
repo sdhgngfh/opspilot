@@ -7,7 +7,6 @@ from app.evaluation import evaluate, load_dataset
 from app.graph import RAGGraphWorkflow
 from app.graph_evaluation import evaluate_graph
 from app.service import RAGService
-from app.ticket_evaluation import evaluate_ticket_workflow
 
 
 def test_baseline_retrieval_metrics(service: RAGService) -> None:
@@ -66,18 +65,3 @@ def test_graph_retry_evaluation(
     assert summary.graph_decision_accuracy >= summary.base_decision_accuracy
     assert summary.graph_source_hit_rate >= summary.base_source_hit_rate
     assert summary.retry_recovery_rate >= 0.6
-
-
-def test_ticket_workflow_evaluation_covers_all_control_paths(
-    service: RAGService,
-) -> None:
-    summary = evaluate_ticket_workflow(
-        service.settings,
-        PROJECT_ROOT / "data" / "evaluation" / "ticket_dataset.jsonl",
-    )
-
-    assert summary["cases"] == 3
-    assert summary["approval_barrier_rate"] == 1.0
-    assert summary["decision_accuracy"] == 1.0
-    assert summary["edit_accuracy"] == 1.0
-    assert summary["submission_idempotency_rate"] == 1.0

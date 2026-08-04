@@ -43,6 +43,27 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
+@app.get("/health/live")
+def health_live() -> dict[str, str]:
+    return {"status": "alive"}
+
+
+@app.get("/health/ready")
+def health_ready() -> dict[str, object]:
+    try:
+        service = get_service()
+        service.ensure_ready()
+    except Exception:
+        return {
+            "status": "not_ready",
+            "components": {"knowledge_index": {"status": "error"}},
+        }
+    return {
+        "status": "ready",
+        "components": {"knowledge_index": {"status": "ok"}},
+    }
+
+
 @app.get("/v1/system/info", response_model=SystemInfoResponse)
 def system_info() -> SystemInfoResponse:
     settings = get_settings()
@@ -52,6 +73,11 @@ def system_info() -> SystemInfoResponse:
         embedding_provider=settings.embedding_provider,
         retrieval_strategy=settings.retrieval_strategy,
         reranker_provider=settings.reranker_provider,
+        index_backend=settings.index_backend,
+        persistence_backend=settings.persistence_backend,
+        auth_enabled=settings.auth_enabled,
+        auth_provider=settings.auth_provider,
+        tracing_enabled=settings.tracing_enabled,
     )
 
 

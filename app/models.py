@@ -65,6 +65,8 @@ class ThreadStateResponse(BaseModel):
     thread_id: str
     history: list[ConversationTurn]
     last_question: str | None = None
+    last_retrieval_query: str | None = None
+    last_grounded: bool | None = None
     checkpoint_created_at: str | None = None
 
 
@@ -82,6 +84,11 @@ class SystemInfoResponse(BaseModel):
     embedding_provider: str
     retrieval_strategy: str
     reranker_provider: str
+    index_backend: str
+    persistence_backend: str
+    auth_enabled: bool
+    auth_provider: str
+    tracing_enabled: bool
 
 
 class EvaluationCase(BaseModel):
@@ -120,10 +127,14 @@ class EvaluationSlice(BaseModel):
     dimension: str
     value: str
     cases: int
+    answerable_cases: int = 0
     hit_rate_at_k: float
+    recall_at_k: float = 0.0
     mrr: float
     answer_keyword_recall: float
     abstention_accuracy: float
+    average_latency_ms: float = 0.0
+    p95_latency_ms: float = 0.0
 
 
 class EvaluationSummary(BaseModel):
@@ -136,6 +147,7 @@ class EvaluationSummary(BaseModel):
     answer_keyword_recall: float
     abstention_accuracy: float
     average_latency_ms: float
+    p95_latency_ms: float = 0.0
     breakdowns: dict[str, list[EvaluationSlice]]
     results: list[CaseResult]
 

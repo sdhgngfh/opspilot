@@ -111,6 +111,9 @@ class KnowledgeIndex:
         k: int,
     ) -> list[RetrievalHit]:
         assert self.vector_store is not None
+        query_vector = self.embeddings.embed_query(query)
+        if sum(value * value for value in query_vector) <= 1e-12:
+            return []
         fetch_k = (
             len(self.bm25_index.documents)
             if self.bm25_index is not None

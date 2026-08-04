@@ -7,7 +7,6 @@ from langchain_core.messages import HumanMessage, SystemMessage
 
 from app.config import Settings
 
-
 _CONTEXT_REFERENCE = re.compile(
     r"(这个|那个|它|该问题|上述|上面|刚才|上一条|这种情况|怎么办|怎么处理)"
 )
@@ -133,7 +132,12 @@ class OpenAIQueryRewriter:
                     )
                 ),
                 HumanMessage(
-                    content=f"原始问题: {original_question}\n当前查询: {current_query}\n重写尝试: {attempt}\n证据反馈: {evidence_reason}"
+                    content=(
+                        f"原始问题: {original_question}\n"
+                        f"当前查询: {current_query}\n"
+                        f"重写尝试: {attempt}\n"
+                        f"证据反馈: {evidence_reason}"
+                    )
                 ),
             ]
         )

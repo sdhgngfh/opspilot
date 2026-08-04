@@ -57,13 +57,9 @@ MRR 再提升 `0.032`、答案关键词召回提升 `0.022`，该次本地运行
 
 ## 运行与证据
 
-```bash
-uv run python scripts/evaluate_ablation.py \
-  --output reports/ablation_evaluation.json
-```
-
-JSON 报告保存每个变体的配置、质量、P95、失败样本、恢复样本和相邻方案差值；
-统一验收也会执行 `evaluation-ablation` 并记录报告哈希。
+当前仓库未包含消融脚本 `scripts/evaluate_ablation.py`，上述表格为历史记录，
+不能从当前代码直接复现。可复现的对照实验见 `scripts/benchmark_retrieval.py`
+（检索策略）与 `scripts/evaluate_graph.py`（图级改写次数对比）。
 
 ## 解释边界
 

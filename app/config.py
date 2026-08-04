@@ -20,6 +20,13 @@ class Settings(BaseSettings):
     rag_mode: Literal["local", "openai"] = "local"
     embedding_provider: Literal["local", "openai"] = "local"
     reranker_provider: Literal["local", "cross_encoder"] = "local"
+    index_backend: Literal["local", "postgres"] = "local"
+    persistence_backend: Literal["local", "postgres"] = "local"
+
+    auth_enabled: bool = False
+    auth_provider: Literal["local", "oidc"] = "local"
+    tracing_enabled: bool = False
+    knowledge_mutations_enabled: bool = True
 
     openai_api_key: str | None = None
     openai_base_url: str | None = None
@@ -32,9 +39,15 @@ class Settings(BaseSettings):
 
     knowledge_dir: Path = PROJECT_ROOT / "data" / "knowledge"
     index_path: Path = PROJECT_ROOT / "data" / "index" / "vector_store.json"
+    access_policy_path: Path = PROJECT_ROOT / "data" / "security" / "document_access.json"
     evaluation_dataset: Path = PROJECT_ROOT / "data" / "evaluation" / "dataset.jsonl"
     graph_evaluation_dataset: Path = PROJECT_ROOT / "data" / "evaluation" / "graph_dataset.jsonl"
     checkpoint_path: Path = PROJECT_ROOT / "data" / "state" / "checkpoints.sqlite"
+
+    cross_encoder_model: str = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
+    cross_encoder_device: str = "cpu"
+    cross_encoder_batch_size: int = Field(default=8, ge=1, le=128)
+    cross_encoder_weight: float = Field(default=0.80, ge=0.0, le=1.0)
 
     retrieval_strategy: Literal["vector", "hybrid", "hybrid_rerank"] = "hybrid_rerank"
     top_k: int = Field(default=4, ge=1, le=20)

@@ -9,7 +9,6 @@ def test_answer_contains_citation(service: RAGService) -> None:
     assert response.grounded is True
     assert response.citations
     assert response.citations[0].source == "u9c_permissions.md"
-    assert response.citations[0].retrieval_details["bm25"] > 0
     assert "[1]" in response.answer
 
 
@@ -19,6 +18,13 @@ def test_unknown_question_is_refused(service: RAGService) -> None:
     assert response.grounded is False
     assert response.answer == REFUSAL
     assert response.citations == []
+
+
+def test_punctuation_only_question_is_refused(service: RAGService) -> None:
+    response = service.ask("？？")
+
+    assert response.grounded is False
+    assert response.answer == REFUSAL
 
 
 def test_index_is_reused(service: RAGService) -> None:

@@ -7,8 +7,8 @@
 
 - 基础问答：36 条，覆盖 5 类问题、3 档难度和 8 份知识文档。
 - 图级问答：10 条，覆盖弱查询、精确错误码和不可回答问题。
-- 权限访问：12 条，覆盖 sales、support、ops 三类角色的允许与拒绝路径。
-- 工单工作流：3 条，覆盖批准、修改、拒绝及幂等写入。
+- 权限访问数据集：12 条（`data/evaluation/access_dataset.jsonl`，评测脚本未随仓库提供）。
+- 工单工作流数据集：3 条（`data/evaluation/ticket_dataset.jsonl`，评测脚本未随仓库提供）。
 
 每条基础和图级样本必须标注 `question_type`、`difficulty`、期望来源和答案要点；
 不可回答样本不得伪造期望来源。加载器拒绝重复 ID 和不完整标签。
@@ -47,7 +47,7 @@
 | Hit Rate@4 | 1.000 |
 | Recall@4 | 1.000 |
 | MRR | 0.984 |
-| 答案关键词召回 | 0.806 |
+| 答案关键词召回 | 0.796 |
 | 拒答准确率 | 1.000 |
 
 按难度分层：
@@ -56,7 +56,7 @@
 |---|---:|---:|---:|---:|
 | easy | 11 | 1.000 | 0.926 | 1.000 |
 | medium | 13 | 1.000 | 0.833 | 1.000 |
-| hard | 12 | 0.950 | 0.667 | 1.000 |
+| hard | 12 | 0.950 | 0.633 | 1.000 |
 
 hard 切片仍能召回正确来源并正确决定回答/拒答，但答案要点覆盖明显低于其他切片。
 这说明下一步应优先改进证据组合与生成，而不是仅继续优化 Top-K 命中率。
@@ -68,34 +68,25 @@ hard 切片仍能召回正确来源并正确决定回答/拒答，但答案要�
 | error_code | 4 | 1.000 | 0.833 | 1.000 |
 | policy | 8 | 0.938 | 0.750 | 1.000 |
 | procedure | 9 | 1.000 | 0.815 | 1.000 |
-| troubleshooting | 10 | 1.000 | 0.833 | 1.000 |
+| troubleshooting | 10 | 1.000 | 0.800 | 1.000 |
 | out_of_scope | 5 | - | - | 1.000 |
 
-权限分层：
-
-| 角色 | 路径数 | 允许/拒绝 | 决策准确率 | 未授权来源泄漏率 | ACL 完整率 |
-|---|---:|---:|---:|---:|---:|
-| sales | 4 | 1/3 | 1.000 | 0.000 | 1.000 |
-| support | 4 | 3/1 | 1.000 | 0.000 | 1.000 |
-| ops | 4 | 3/1 | 1.000 | 0.000 | 1.000 |
-
-完整逐例结果由统一验收写入 `reports/evaluation.json` 和
-`reports/access_evaluation.json`。JSON 中保留问题类型、难度、角色和每个切片指标，
+完整逐例结果写入 `reports/evaluation.json`。JSON 中保留问题类型、难度和每个切片指标，
 可以定位失败样本，而不是只观察总体平均值。
 
 ## 使用方式
 
 ```bash
 uv run python scripts/evaluate.py --output reports/evaluation.json
-uv run python scripts/evaluate_access.py --output reports/access_evaluation.json
+uv run python scripts/evaluate_graph.py --output reports/graph_evaluation.json
 uv run python scripts/benchmark_retrieval.py --output reports/retrieval_comparison.json
 ```
 
-修改检索、切分、证据阈值或提示词后，必须重新运行基础、图级和权限评测。
+修改检索、切分、证据阈值或提示词后，必须重新运行基础和图级评测。
 
 ## 尚未覆盖
 
 - 样本尚未经过双人独立标注和一致性统计。
 - 合成问题未覆盖真实用户长尾表达和业务分布漂移。
 - 本地抽取式生成结果不能代表在线大模型的质量、延迟、Token 和成本。
-- 当前角色覆盖不等于组织级多租户隔离、数据库 RLS 或渗透测试。
+- 项目未实现鉴权与 ACL，相关评测列为后续工作。

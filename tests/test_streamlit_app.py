@@ -50,7 +50,6 @@ class _DemoAPIHandler(BaseHTTPRequestHandler):
                             "chunk_id": "chunk-1",
                             "score": 0.9,
                             "excerpt": "按部门限制数据权限。",
-                            "retrieval_details": {"vector": 0.8},
                         }
                     ],
                     "rewrite_count": 1,
@@ -90,7 +89,7 @@ def test_streamlit_offline_state_is_explicit(monkeypatch: pytest.MonkeyPatch) ->
 
     assert not app.exception
     assert app.title[0].value == "OpsPilot 智能运维助手"
-    assert [tab.label for tab in app.tabs] == ["知识问答", "工单审批", "知识库"]
+    assert [tab.label for tab in app.tabs] == []
     assert any(error.value == "API 未连接" for error in app.error)
     assert len(app.session_state["thread_id"]) > len("demo-")
 

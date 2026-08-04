@@ -34,27 +34,26 @@ def test_frontend_client_surfaces_api_detail() -> None:
     client = OpsPilotClient(
         "http://test",
         transport=httpx.MockTransport(
-            lambda request: httpx.Response(409, json={"detail": "已经审批"})
+            lambda request: httpx.Response(409, json={"detail": "服务不可用"})
         ),
     )
 
-    with pytest.raises(OpsPilotAPIError, match="已经审批"):
-        client.review_ticket(
-            "ticket-1",
-            action="approve",
-            reviewer="ops-lead",
-        )
+    with pytest.raises(OpsPilotAPIError, match="服务不可用"):
+        client.system_info()
 
 
-def test_frontend_client_attaches_bearer_token() -> None:
+def test_frontend_client_health_and_system_info() -> None:
     def handler(request: httpx.Request) -> httpx.Response:
-        assert request.headers["Authorization"] == "Bearer secure-token"
-        return httpx.Response(200, json={"username": "alice"})
+        if request.url.path == "/health":
+            return httpx.Response(200, json={"status": "ok"})
+        if request.url.path == "/v1/system/info":
+            return httpx.Response(200, json={"rag_mode": "local"})
+        return httpx.Response(404, json={"detail": "not found"})
 
     client = OpsPilotClient(
         "http://test",
-        access_token="secure-token",
         transport=httpx.MockTransport(handler),
     )
 
-    assert client.me()["username"] == "alice"
+    assert client.health()["status"] == "ok"
+    assert client.system_info()["rag_mode"] == "local"
